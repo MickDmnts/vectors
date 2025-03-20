@@ -54,7 +54,7 @@ public class Program {
         double time = 10;
         Vector2D start = new Vector2D(-3, -6);
         Vector2D end = new Vector2D(-2, -6);
-        Vector2D endNew = start + (end.Unit * speed * time);
+        Vector2D endNew = start + ((end - start).Unit * speed * time);
         /*
         Vector2 endNew = start.transform.position + (start.transform.forward * speed * time);
         */
