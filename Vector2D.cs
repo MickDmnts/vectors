@@ -4,6 +4,8 @@
         public double X { get; private set; }
         public double Y { get; private set; }
 
+        public const double DegToRad = MathF.PI / 180;
+
         public Vector2D Unit {
             get {
                 double length = this.SqrMagnitude;
@@ -54,6 +56,19 @@
             return new Vector2D(Lerp(_v1.X, _v2.X, _t), Lerp(_v1.Y, _v2.Y, _t));
         }
 
+        public static Vector2D Rotate(Vector2D _v1, double _angle) {
+
+            /*double radAngle = _angle * DegToRad;
+            double magn = Magnitude(_v1);
+            double tanOriginalAngle = (_v1.Y / _v1.X);
+            double Originalangle = Math.Atan(tanOriginalAngle);
+            double newAngle = Originalangle + radAngle;
+            double xNew = magn * Math.Cos(newAngle);
+            double yNew = magn * Math.Sin(newAngle);*/
+
+            return new Vector2D(Magnitude(_v1) * Math.Cos(Math.Atan((_v1.Y / _v1.X)) + _angle * DegToRad), Magnitude(_v1) * Math.Sin(Math.Atan((_v1.Y / _v1.X)) + _angle * DegToRad));
+        }
+
         public static Vector2D operator +(Vector2D _v1, Vector2D _v2) {
             return Add(_v1, _v2);
         }
@@ -69,5 +84,6 @@
         public override string ToString() {
             return $"({X}, {Y})";
         }
+
     }
 }

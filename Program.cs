@@ -53,13 +53,33 @@ public class Program {
         double speed = 2;
         double time = 10;
         Vector2D start = new Vector2D(-3, -6);
-        Vector2D end = new Vector2D(-2, -6);
-        Vector2D endNew = start + ((end - start).Unit * speed * time);
+        Vector2D end = new Vector2D(-1, -7);
+        Vector2D dif = end - start;
+        Vector2D range = dif.Unit * speed * time;
+        Vector2D endNew = start + (dif.Unit * speed * time);
         /*
         Vector2 endNew = start.transform.position + (start.transform.forward * speed * time);
         */
-        Console.WriteLine("Start: " + start);
+
+        Vector2D test = new Vector2D(1, 1);
+
+        Vector2D rot90 = Vector2D.Rotate(test, 90);
+        Vector2D rotM90 = Vector2D.Rotate(test, -90);
+
+        Vector2D rot180 = Vector2D.Rotate(test, 180);
+        Vector2D rotM180 = Vector2D.Rotate(test, -180);
+
+
+
+        Console.WriteLine(" \nRotated 90: " + rot90);
+        Console.WriteLine(" \nRotated M90: " + rotM90);
+        Console.WriteLine(" \nRotated 180: " + rot180);
+        Console.WriteLine(" \nRotated M180: " + rotM180);
+
+        /*Console.WriteLine("Start: " + start);
         Console.WriteLine("End: " + end);
-        Console.WriteLine("End New: " + endNew);
+        Console.WriteLine("Dif: " + dif);
+        Console.WriteLine("Range: " + range);
+        Console.WriteLine("End New: " + endNew);*/
     }
 }
