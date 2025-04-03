@@ -52,22 +52,22 @@ public class Program {
 
         double speed = 2;
         double time = 10;
-        Vector2D start = new Vector2D(-3, -6);
-        Vector2D end = new Vector2D(-1, -7);
-        Vector2D dif = end - start;
-        Vector2D range = dif.Unit * speed * time;
-        Vector2D endNew = start + (dif.Unit * speed * time);
+        Double2 start = new Double2(-3, -6);
+        Double2 end = new Double2(-1, -7);
+        Double2 dif = end - start;
+        Double2 range = dif.Unit * speed * time;
+        Double2 endNew = start + (dif.Unit * speed * time);
         /*
         Vector2 endNew = start.transform.position + (start.transform.forward * speed * time);
         */
 
-        Vector2D test = new Vector2D(1, 1);
+        Double2 test = new Double2(1, 1);
 
-        Vector2D rot90 = Vector2D.Rotate(test, 90);
-        Vector2D rotM90 = Vector2D.Rotate(test, -90);
+        Double2 rot90 = Double2.Rotate(test, 90);
+        Double2 rotM90 = Double2.Rotate(test, -90);
 
-        Vector2D rot180 = Vector2D.Rotate(test, 180);
-        Vector2D rotM180 = Vector2D.Rotate(test, -180);
+        Double2 rot180 = Double2.Rotate(test, 180);
+        Double2 rotM180 = Double2.Rotate(test, -180);
 
 
 

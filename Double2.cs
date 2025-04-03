@@ -1,50 +1,50 @@
 ﻿namespace vectors {
-    public struct Vector2D {
+    public struct Double2 {
 
         public double X { get; private set; }
         public double Y { get; private set; }
 
         public const double DegToRad = MathF.PI / 180;
 
-        public Vector2D Unit {
+        public Double2 Unit {
             get {
                 double length = this.SqrMagnitude;
-                return new Vector2D(X / Length, Y / Length);
+                return new Double2(X / Length, Y / Length);
             }
         }
 
         public double SqrMagnitude => SquareMagnitude(this);
         public double Length => Magnitude(this);
 
-        public Vector2D(double _x, double _y) {
+        public Double2(double _x, double _y) {
             X = _x;
             Y = _y;
         }
 
-        public static Vector2D Add(Vector2D _v1, Vector2D _v2) {
-            return new Vector2D(_v1.X + _v2.X, _v1.Y + _v2.Y);
+        public static Double2 Add(Double2 _v1, Double2 _v2) {
+            return new Double2(_v1.X + _v2.X, _v1.Y + _v2.Y);
         }
 
-        public static Vector2D Subtract(Vector2D _v1, Vector2D _v2) {
-            return new Vector2D(_v1.X - _v2.X, _v1.Y - _v2.Y);
+        public static Double2 Subtract(Double2 _v1, Double2 _v2) {
+            return new Double2(_v1.X - _v2.X, _v1.Y - _v2.Y);
         }
 
-        public static double Dot(Vector2D _v1, Vector2D _v2) {
+        public static double Dot(Double2 _v1, Double2 _v2) {
             return (_v1.X * _v2.X) + (_v1.Y * _v2.Y);
         }
 
-        public static Vector2D Product(Vector2D _v, double _d) {
-            return new Vector2D(_v.X * _d, _v.Y * _d);
+        public static Double2 Product(Double2 _v, double _d) {
+            return new Double2(_v.X * _d, _v.Y * _d);
         }
 
-        public static double SquareMagnitude(Vector2D _v1) {
+        public static double SquareMagnitude(Double2 _v1) {
             double squareX = _v1.X * _v1.X;
             double squareY = _v1.Y * _v1.Y;
 
             return squareX + squareY;
         }
 
-        public static double Magnitude(Vector2D _v1) {
+        public static double Magnitude(Double2 _v1) {
             return Math.Sqrt(SquareMagnitude(_v1));
         }
 
@@ -52,11 +52,11 @@
             return _a + _t * (_b - _a);
         }
 
-        public static Vector2D Lerp(Vector2D _v1, Vector2D _v2, double _t) {
-            return new Vector2D(Lerp(_v1.X, _v2.X, _t), Lerp(_v1.Y, _v2.Y, _t));
+        public static Double2 Lerp(Double2 _v1, Double2 _v2, double _t) {
+            return new Double2(Lerp(_v1.X, _v2.X, _t), Lerp(_v1.Y, _v2.Y, _t));
         }
 
-        public static Vector2D Rotate(Vector2D _v1, double _angle) {
+        public static Double2 Rotate(Double2 _v1, double _angle) {
 
             /*double radAngle = _angle * DegToRad;
             double magn = Magnitude(_v1);
@@ -66,18 +66,18 @@
             double xNew = magn * Math.Cos(newAngle);
             double yNew = magn * Math.Sin(newAngle);*/
 
-            return new Vector2D(Magnitude(_v1) * Math.Cos(Math.Atan((_v1.Y / _v1.X)) + _angle * DegToRad), Magnitude(_v1) * Math.Sin(Math.Atan((_v1.Y / _v1.X)) + _angle * DegToRad));
+            return new Double2(Magnitude(_v1) * Math.Cos(Math.Atan((_v1.Y / _v1.X)) + _angle * DegToRad), Magnitude(_v1) * Math.Sin(Math.Atan((_v1.Y / _v1.X)) + _angle * DegToRad));
         }
 
-        public static Vector2D operator +(Vector2D _v1, Vector2D _v2) {
+        public static Double2 operator +(Double2 _v1, Double2 _v2) {
             return Add(_v1, _v2);
         }
 
-        public static Vector2D operator -(Vector2D _v1, Vector2D _v2) {
+        public static Double2 operator -(Double2 _v1, Double2 _v2) {
             return Subtract(_v1, _v2);
         }
 
-        public static Vector2D operator *(Vector2D _v, double _d) {
+        public static Double2 operator *(Double2 _v, double _d) {
             return Product(_v, _d);
         }
 
