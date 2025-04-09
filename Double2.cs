@@ -13,7 +13,7 @@
             }
         }
 
-        public double SqrMagnitude => SquareMagnitude(this);
+        public double SqrMagnitude => SquaredMagnitude(this);
         public double Length => Magnitude(this);
 
         public Double2(double _x, double _y) {
@@ -37,7 +37,7 @@
             return new Double2(_v.X * _d, _v.Y * _d);
         }
 
-        public static double SquareMagnitude(Double2 _v1) {
+        public static double SquaredMagnitude(Double2 _v1) {
             double squareX = _v1.X * _v1.X;
             double squareY = _v1.Y * _v1.Y;
 
@@ -45,7 +45,7 @@
         }
 
         public static double Magnitude(Double2 _v1) {
-            return Math.Sqrt(SquareMagnitude(_v1));
+            return Math.Sqrt(SquaredMagnitude(_v1));
         }
 
         public static double Lerp(double _a, double _b, double _t) {
