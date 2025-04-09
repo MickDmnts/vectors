@@ -9,7 +9,7 @@
         public Double2 Unit {
             get {
                 double length = this.SqrMagnitude;
-                return new Double2(X / Length, Y / Length);
+                return new Double2(X / length, Y / length);
             }
         }
 
