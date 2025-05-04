@@ -9,7 +9,7 @@ public static class Simulator {
             time++;
         }
     }
-
+    
     public static void SimulateSpiral(Double2 _startPos, int _runTime, double _degreesChange = 10d) {
         int time = 1;
         double degrees = 0;
