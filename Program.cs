@@ -2,8 +2,15 @@
 
 public class Program {
     static void Main(string[] _args) {
-        Double2 startPos = new Double2(1, 1);
-        Simulator.SimulateBasilistics(startPos, 10);
+        Double2 startPos = new Double2(0, 0);
+        Double2 direction = new Double2(1, 0);
+        double speed = 2;
+        Double2 gravityDirection = new Double2(0, -1);
+        double gravityAcceleration = 1;
+        Simulator.SimulateBalistics(startPos, direction, speed, gravityDirection, gravityAcceleration, 10);
+
+        /*Double2 startPos = new Double2(1, 1);
+        Simulator.SimulateSpiral(startPos, 36);*/
 
         /*Double2 v1 = new Double2(1, 1);
         Double2 v2 = new Double2(10, 7);
