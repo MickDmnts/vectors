@@ -1,11 +1,11 @@
 ﻿using vectors;
 
 public static class Simulator {
-    public static void SimulateBalistics(Double2 _startPos, Double2 _direction, double _speed, Double2 _gravityDirection, double _gravityAcceleration, int _runTime) {
-        int time = 1;
+    public static void SimulateBalistics(Double2 _startPos, Double2 _direction, double _initialVelocity, Double2 _gravityDirection, double _gravityAcceleration, int _runTime) {
+        int time = 0;
         while (time <= _runTime) {
             //vi * t + 0.5 * a * t^2
-            Double2 newPos = _startPos + _direction * _speed * time + (_gravityDirection * _gravityAcceleration * time * time * 0.5);
+            Double2 newPos = _startPos + (_direction * _initialVelocity * time) + (_gravityDirection * _gravityAcceleration * time * time * 0.5);
             Console.WriteLine($"Time: {time} s, Position: {newPos}");
             time++;
         }
