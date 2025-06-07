@@ -1,18 +1,15 @@
 ﻿namespace vectors {
     public class Vectors {
 
-        struct Coordinates() {
-            double _X;
-            double _Y;
-            //int index?
-        }
 
         // An array containing the x coordinates
         //double[] _X;
         // An array containing the y coordinates
         //double[] _Y;
 
-        List<Coordinates> _Coordinates;
+        List<double> _X;
+        List<double> _Y;
+        //List<int> _Index;
 
         // The max number of vectors we can have
         int _VectorLimit;
@@ -30,7 +27,16 @@
 
             //_X = new double[_vectorLimit];
             //_Y = new double[_vectorLimit];
-            _Coordinates = new List<Coordinates>(_vectorLimit);
+            //_Coordinates = new List<Double2>(_vectorLimit);
+            _X = new List<double>(_VectorLimit);
+            _Y = new List<double>(_VectorLimit);
+
+            for (int i = 0; i < _VectorLimit; i++) {
+                _X.Add(double.NaN);
+                _Y.Add(double.NaN);
+            }
+
+            //_Index = new List<int>(_VectorLimit);
             _OriginalListCount = _vectorLimit;
             _DeletedIndexes = new Queue<int>(_vectorLimit);
             _VectorCount = 0;
@@ -39,11 +45,18 @@
         //Creates a new Double2 and assigns and ID
         public Double2 Create(double _x, double _y) {
 
-            Double2 double2 = new Double2(_x, _y, _VectorCount);
+            //Double2 double2 = new Double2(_x, _y, _VectorCount);
+            _X[_VectorCount] = _x;
+            _Y[_VectorCount] = _y;
+            //Console.WriteLine("Count: " + _X.Count);
+            //_Index[_VectorCount] = _VectorCount;
+            Double2.Template.SetX(_x);
+            Double2.Template.SetY(_y);
+            Double2.Template.SetIndex(_VectorCount);
             _VectorCount++;
-            LimitHandling();
-            return double2;
+            //LimitHandling();
 
+            return Double2.Template;
         }
 
         /*public void DeleteVector(int _index) {
@@ -57,12 +70,8 @@
         void LimitHandling() {
             if (_VectorCount > _VectorLimit / 2) {
 
-                _Coordinates.AddRange(new Coordinates[_OriginalListCount]);
+                // _Coordinates.AddRange(new Coordinates[_OriginalListCount]);
                 _VectorLimit = _VectorCount;
-
-                //Not a fan, too many Vectors
-                //Array.Resize(ref _X, _VectorCount);
-                //Array.Resize(ref _Y, _VectorCount);
             }
         }
 
