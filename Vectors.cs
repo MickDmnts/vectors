@@ -1,7 +1,5 @@
 ﻿namespace vectors {
     public class Vectors {
-
-
         // An array containing the x coordinates
         //double[] _X;
         // An array containing the y coordinates
@@ -74,7 +72,5 @@
                 _VectorLimit = _VectorCount;
             }
         }
-
-
     }
 }
