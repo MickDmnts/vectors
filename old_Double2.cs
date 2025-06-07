@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a 2D vector
     /// </summary>
-    public class Double2 {
+    public class old_Double2 {
         ///<summary>Degreest to Radians conversion value</summary>
         public const double DegToRad = MathF.PI / 180;
 
@@ -11,8 +11,6 @@
         public double X { get; private set; }
         ///<summary>Returns the Y axis value</summary>
         public double Y { get; private set; }
-
-        public static Double2 Template = new Double2(double.NaN, double.NaN, -1);
 
         public int Index { get; private set; }
 
@@ -41,7 +39,7 @@
         //public double Length => Magnitude(this);
 
         ///<summary>Creates an instance of a Double with a value X, Y</summary>
-        public Double2(double _x, double _y, int _index) {
+        public old_Double2(double _x, double _y, int _index) {
             X = _x;
             Y = _y;
             Index = _index;
