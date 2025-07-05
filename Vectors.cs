@@ -37,7 +37,7 @@
     }
 
     public static class Vectors {
-        public const int LIMIT = 1_000_000;
+        public const int LIMIT = 6_000_000;
 
         static Double2s DoublesCache = new Double2s(LIMIT);
         static int CountCache = 0;
